@@ -36,12 +36,8 @@ class DashboardPage {
         return this.#balanceAmountField.invoke('text');
     }
 
-     getTotalAmount() {
+    getTotalAmount() {
         return this.#totalAmountField.invoke('text');
-    }
-
-    getCurrentBalanceAmountField() {
-        return this.#balanceAmountField;
     }
 
     getTotalAmountField() {

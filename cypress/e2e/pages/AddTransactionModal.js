@@ -1,8 +1,5 @@
 // cypress/pages/AddTransactionModal.js
 class AddTransactionModal {
-    get #dateField() {
-        return cy.get('#expense-date');
-    }
 
     get #payeeField() {
         return cy.get('#expense-receiver');

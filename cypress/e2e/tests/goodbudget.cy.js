@@ -33,7 +33,7 @@ describe('Goodbudget Transaction Management', () => {
     });
 
     it('should successfully change the amount of an envelope', () => {
-        const envelopeName = 'Groceries'; 
+        const envelopeName = 'Groceries';
         const amountToAdd = 100.00;
 
         let initialEnvelopeAmount;
@@ -57,14 +57,19 @@ describe('Goodbudget Transaction Management', () => {
 
             // 5. Verify Updated Groceries amount appears in Envelopes/Dashboard
             DashboardPage.openGroceries()
-            DashboardPage.getCurrentBalanceAmountField().should('have.text', targetAmount.toFixed(2));
+
+            DashboardPage.getCurrentBalanceAmount().then((amount) => {
+                const tolerance = 0.000001;
+                expect(Math.abs(parseFloat(amount) - targetAmount)).to.be.lessThan(tolerance);
+            });
+
         });
     });
-    
-      it('should display an error for invalid login credentials', () => {
+
+    it('should display an error for invalid login credentials', () => {
         LoginPage.visit();
         LoginPage.login('invalid@example.com', 'wrongpassword');
         LoginPage.getErrorMessage().should('be.visible').and('contain', "Hm... that username and/or password didn't work.");
-      });
+    });
 
 });

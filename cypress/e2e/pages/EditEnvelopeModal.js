@@ -1,5 +1,5 @@
 class EditEnvelopeModal {
-  // Selector for the Amount field
+
   get #amountField() {
     return cy.get('.cell-content > input.amount').first();
   }

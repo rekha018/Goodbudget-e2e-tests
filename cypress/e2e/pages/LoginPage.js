@@ -1,4 +1,5 @@
 class LoginPage {
+
   get #emailField() {
     return cy.get('#username');
   }
@@ -16,11 +17,7 @@ class LoginPage {
   }
 
   visit() {
-    cy.visit('/login'); // Goodbudget's login path
-  }
-
-  logout() {
-    cy.visit('/logout'); // Goodbudget's login path
+    cy.visit('/login');
   }
 
   login(email, password) {
